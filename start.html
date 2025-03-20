@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-image: url(img/universe_space04.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow: hidden;
+      text-align: center;
+      color: #fff;
+    }
+    h1 {
+      font-size: 5em;
+      margin: 0 0 3%;
+    }
+    .container {
+      margin-top: 10%;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    button {
+      width: 10%;
+      margin: 1%;
+      padding: 10px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 70%;
+      z-index: 2;
+    }
+    .modal img {
+      max-width: 100%;
+      height: auto;
+    }
+    #close {
+      position: absolute;
+      top: 95%;
+      left: 43.5%;
+      padding: 5px;
+    }
+    #overlay {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+  </style>
+  <title>かわせっ！！！！！</title>
+</head>
+<body>
+  <div class="container">
+    <h1>かわせっ！！！！！</h1>
+    <div class="button-container">
+      <button id="play">play game</button>
+      <button id="game">遊び方</button>
+    </div>
+  </div>
+  <div id="overlay"></div>
+
+  <div class="modal" id="modal">
+    <img src="img/game.png" alt="遊び方">
+    <button id="close">閉じる</button>
+  </div>
+
+  <script>
+    'use strict';
+    var audios = [
+      new Audio('audio/play.mp3'),
+      new Audio('audio/game.mp3')
+    ];
+    let playButton = document.getElementById('play');
+    let gameButton = document.getElementById('game');
+    let overlay = document.getElementById('overlay');
+
+    // play gameが押された時
+    playButton.onclick = function play(){
+      playAudio(0);
+      setTimeout(link, 1500);
+    }
+    function link() {
+      location.href = "game.html";
+    }
+    // 遊び方が押された時
+    gameButton.onclick = function game(){
+      playAudio(1);
+      modal.style.display = "block";
+      overlay.style.display = "block";
+    }
+
+    // モーダルウィンドウを閉じる
+    let closeButton = document.getElementById('close');
+    let modal = document.getElementById('modal');
+    closeButton.addEventListener("click", onOff);
+    function onOff() {
+      modal.style.display = "none";
+      overlay.style.display = "none";
+    }
+    
+    // 効果音
+    function playAudio(index) {
+      audios[index].play();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body {
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+}
+
+#repage, #restart {
+  display: none;
+  position: absolute;
+  padding: 7px 10px;
+}
+
+#repage {
+  top: 65%;
+  left: 48%;
+}
+#restart {
+  top: 75%;
+  left: 47%;
+}
