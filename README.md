@@ -42,6 +42,6 @@ JavaScriptの練習として作成したシンプルな回避ゲームです。
 * Me-648
 
 ## 使用させていただいた素材
-* AIPICT（https://aipict.com/）
-* 効果音ラボ（https://soundeffect-lab.info/）
-* DOVA-SYNDROME（https://dova-s.jp/）
+* AIPICT https://aipict.com
+* 効果音ラボ https://soundeffect-lab.info
+* DOVA-SYNDROME https://dova-s.jp
