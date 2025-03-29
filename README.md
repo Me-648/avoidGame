@@ -31,7 +31,7 @@ JavaScriptの練習として作成したシンプルな回避ゲームです。
 
 ## インストールと実行方法
 1.  リポジトリをクローンします。
-    git clone https://github.com/Me-648/avoidGame.git
+    `git clone https://github.com/Me-648/avoidGame.git`
 2.  `start.html` をブラウザで開きます。
 
 ## 今後の改善点
