@@ -16,8 +16,8 @@ var count = document.getElementById('count');
 
 // 難易度
 var timeLeft = 20;
-var ballSpead = 11;
-var ballMax = 11;
+var ballSpead = 8;
+var ballMax = 9;
 
 // キャラのオブジェクト
 var character = new Object();
