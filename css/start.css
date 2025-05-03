@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+body {
+  background-image: url(../img/universe_space04.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+h1 {
+  font-size: 5em;
+  margin: 0 0 3%;
+}
+h2 {
+  font-size: 3em;
+}
+.container {
+  margin-top: 10%;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button {
+  width: 10%;
+  margin: 1%;
+  padding: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  z-index: 2;
+}
+.modal img {
+  max-width: 100%;
+  height: auto;
+}
+#close {
+  position: absolute;
+  top: 95%;
+  left: 43.5%;
+  padding: 5px;
+}
+#overlay {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.level-modal {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  left: 50%;
+}
+.level-modal button {
+  width: auto;
+  margin-bottom: 5%;
+}

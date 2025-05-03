@@ -2,6 +2,7 @@
 
 body {
   text-align: center;
+  font-family: sans-serif;
   color: #fff;
   background-color: #000;
 }
@@ -10,13 +11,13 @@ body {
   display: none;
   position: absolute;
   padding: 7px 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #repage {
   top: 65%;
-  left: 48%;
 }
 #restart {
   top: 75%;
-  left: 47%;
 }

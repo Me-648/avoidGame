@@ -1,5 +1,41 @@
 'use strict';
 
+// ページ読み込み時の処理
+let difficulty;
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  difficulty = urlParams.get('difficulty');
+
+  if (difficulty) {
+    console.log(`選択された難易度: ${difficulty}`);
+    switch (difficulty) {
+      case 'easy':
+        ballSpead = 30;
+        ballMax = 7;
+        break;
+      case 'normal':
+        ballSpead = 40;
+        ballMax = 9;
+        break;
+      case 'hard':
+        ballSpead = 42;
+        ballMax = 10;
+        break;
+      case 'very-hard':
+        ballSpead = 45;
+        ballMax = 12;
+        break;
+      default:
+        ballSpead = 40;
+        ballMax = 9;
+        break;
+    }
+  } else {
+    ballSpead = 8;
+    ballMax = 9;
+  }
+});
+
 var can = document.getElementById('can');
 can.width = 1000;
 can.height = 530;
@@ -16,8 +52,8 @@ var count = document.getElementById('count');
 
 // 難易度
 var timeLeft = 20;
-var ballSpead = 8;
-var ballMax = 9;
+var ballSpead;
+var ballMax;
 
 // キャラのオブジェクト
 var character = new Object();
@@ -120,6 +156,9 @@ function main() {
       if(!clearBgm){
         playAudio(1);
         clearBgm = true;
+        if(difficulty === "very-hard") {
+          console.log("おめでとうございます！！！！！");
+        }
       }
       var textWidth = ctx.measureText("Clear!!").width;
       ctx.fillText("Clear!!", (can.width - textWidth) / 2, can.height / 2 + 30);
@@ -147,10 +186,15 @@ function createBall() {
   var ball = new Object();
   ball.img = new Image();
   ball.img.src = 'img/star.png';
-  ball.x = Math.random() * can.width;
-  ball.y = Math.random() * can.height;
-  ball.speedX = (Math.random() - 0.5) * ballSpead;
-  ball.speedY = (Math.random() - 0.5) * ballSpead;
+  const ballWidth = 20;
+  const ballHeight = 20;
+  ball.x = Math.random() * (can.width - ballWidth);
+  ball.y = Math.random() * (can.height - ballHeight);
+
+  // ランダムな速度
+  const speed = 0.1;
+  ball.speedX = (Math.random() * 2 - 1) * speed * ballSpead;
+  ball.speedY = (Math.random() * 2 - 1) * speed * ballSpead;
   balls.push(ball);
 }
 // 球体を更新する関数
@@ -175,7 +219,7 @@ function drawBalls() {
 function dis() {
   balls.forEach(ball => {
     var dis = Math.sqrt( (character.x + 35 - (ball.x + 10))**2 + (character.y + 35 - (ball.y + 10))**2 );
-    if(dis < 45) {
+    if(dis < 40) {
       gameOver = true;
     }
   });
@@ -215,7 +259,9 @@ function keydownfunc(event){
   hasInteracted = true;
   var keyCode = event.keyCode;
 
-  if (keyCode === 37 || keyCode === 38 || keyCode === 39 || keyCode === 40) {
+  const arrowKeys = [37, 38, 39, 40, 65, 87, 68, 83]
+
+  if (arrowKeys.includes(keyCode)) {
     if (audios[0].currentTime === 0) {
       playAudio(0);
     }
@@ -224,16 +270,16 @@ function keydownfunc(event){
     }
   }
 
-  if (keyCode === 37) key.left = true;
-  if (keyCode === 38) key.up = true;
-  if (keyCode === 39) key.right = true;
-  if (keyCode === 40) key.down = true;
+  if (keyCode === 37 || keyCode === 65) key.left = true;
+  if (keyCode === 38 || keyCode === 87) key.up = true;
+  if (keyCode === 39 || keyCode === 68) key.right = true;
+  if (keyCode === 40 || keyCode === 83) key.down = true;
 }
 // キーが離された時の関数
 function keyupfunc(event){
   var keyCode = event.keyCode;
-  if (keyCode === 37) key.left = false;
-  if (keyCode === 38) key.up = false;
-  if (keyCode === 39) key.right = false;
-  if (keyCode === 40) key.down = false;
+  if (keyCode === 37 || keyCode === 65) key.left = false;
+  if (keyCode === 38 || keyCode === 87) key.up = false;
+  if (keyCode === 39 || keyCode === 68) key.right = false;
+  if (keyCode === 40 || keyCode === 83) key.down = false;
 }
