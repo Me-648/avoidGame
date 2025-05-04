@@ -21,3 +21,24 @@ body {
 #restart {
   top: 75%;
 }
+
+@media screen and (max-width: 992px) {
+  body {
+    overflow: hidden;
+  }
+  #can {
+    width: 85vw;
+    height: 85vh;
+  }
+  #repage, #restart {
+    padding: 5px 7px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #repage {
+    top: 68%;
+  }
+  #restart {
+    top: 80%;
+  }
+}

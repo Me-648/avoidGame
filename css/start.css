@@ -19,7 +19,7 @@ h2 {
 .container {
   margin-top: 10%;
 }
-.button-container {
+.button-container, .level-button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,6 +70,37 @@ button {
   left: 50%;
 }
 .level-modal button {
-  width: auto;
+  width: 40%;
   margin-bottom: 5%;
+}
+#back {
+  width: 20%;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  h1 {
+    font-size: 3em;
+    margin: 0 0 3%;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  button {
+    width: 15%;
+    padding: 10px;
+  }
+  .level-button-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .level-button {
+    width: 50%;
+    padding: 5%;
+    white-space: nowrap;
+  }
 }

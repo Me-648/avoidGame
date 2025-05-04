@@ -23,7 +23,7 @@
 
   <div class="level-modal" id="level-modal">
     <h2>難易度を選択してね☆</h2>
-    <div class="button-container">
+    <div class="level-button-container">
       <button id="easy" class="level-button">イージー</button>
       <button id="normal" class="level-button">ノーマル</button>
       <button id="hard" class="level-button">ハード</button>
@@ -48,7 +48,7 @@
     // play gameが押された時
     playButton.onclick = function play(){
       playAudio(1);
-      main.style.display = "none";
+      main.style.opacity = "0";
       levelModal.style.display = "block";
       overlay.style.display = "block";
     }
@@ -56,7 +56,7 @@
     const backButton = document.getElementById('back');
     backButton.addEventListener("click", onOff);
     function onOff() {
-      main.style.display = "block";
+      main.style.opacity = "1";
       levelModal.style.display = "none";
       overlay.style.display = "none";
     }
